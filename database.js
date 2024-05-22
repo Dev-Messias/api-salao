@@ -1,12 +1,15 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const URI = '';
+const URI = process.env.URL_DATABASE;
 
-mongoose.set('useNewUrlParser', true);
+/*mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+mongoose.set('useUnifiedTopology', true);*/
 
 mongoose
-    .connect(URI)
+    .connect(URI, {  
+
+    })
     .then(() => console.log("DB is up!"))
-    .catch(() => console.log(err))
+    .catch((err) => console.log(err))
